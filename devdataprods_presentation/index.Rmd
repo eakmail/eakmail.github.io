@@ -1,0 +1,54 @@
+---
+title       : Simple MtCars DataSet Graphical Explorer
+subtitle    : 2d graph with regression line
+author      : Evgeny Kuznetsov
+job         : student
+framework   : io2012        # {io2012, html5slides, shower, dzslides, ...}
+highlighter : highlight.js  # {highlight.js, prettify, highlight}
+hitheme     : tomorrow      # 
+widgets     : []            # {mathjax, quiz, bootstrap}
+mode        : selfcontained # {standalone, draft}
+knit        : slidify::knit2slides
+---
+
+## Description
+
+Shiny application "Simple MtCars DataSet Graphical Explorer" allows
+to build graph with user selected X and Y axis variables of "mtcars"
+dataset.
+
+Also, it's possible to put regression line on the graph.
+
+--- .class #id 
+
+## Inputs
+
+1. Y Axis selector allows to chose Y axis variable
+2. X Axis selector allows to chose Y axis variable
+3. Regression line check box allows user to control visibility 
+of regression line
+
+--- .class #id 
+
+## Outputs
+
+* Graph with user selected X and Y axis variables of "mtcars"
+dataset.
+
+* Regression line is visible if user checked box.
+
+--- .class #id 
+
+## Example of Output Graph
+
+```{r simple-plot, fig.height = 6, fig.align = 'center', message = F}
+  numX <- 2;  numY <- 1; showfit <- TRUE; rowdesc <- c("Miles/(US) gallon", "Number of cylinders")
+  plot(mtcars[,numX], mtcars[,numY], main = "MtCars Output Graph", xlab = rowdesc[numX], ylab = rowdesc[numY])
+  if (showfit) abline(lm(mtcars[,numY] ~ mtcars[,numX]), col = "red")
+```
+
+
+
+
+
+
